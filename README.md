@@ -1,119 +1,88 @@
-# MLArchitectBot
+# 🤖 MLArchitectBot
 
-**MLArchitectBot** is a conversational Discord bot that chats naturally with users, answers questions, and provides helpful responses. It integrates a lightweight LLaMA-based language model for intelligent and context-aware replies.
-
----
-
-## Features
-
-- **Conversational AI**: Engage users in natural, flowing conversation.
-- **LLaMA-powered responses**: Utilizes a fine-tuned LLaMA model for generating smart and relevant replies.
-- **Custom Commands**:
-  - `!ping` – Check if the bot is online.
-  - `!about` – Learn more about the bot.
-- **Greeting Recognition**: Responds to greetings and casual messages without requiring a command.
-- **Flexible Input Handling**: No need to use `!` commands for everyday chat—just talk!
+MLArchitectBot is a smart AI-powered chatbot built for Discord using the `discord.py` library. It responds to user messages using a large language model backend and includes utility commands like message clearing for moderators.
 
 ---
 
-## Getting Started
+## 🚀 Features
 
-### 1. Clone the repository
+- 🧠 **Conversational AI**: Responds to user messages using `llmbotmodel` which leverages llama.
+- 🧹 **Message Management**: `!clear` command to bulk delete messages in a channel.
+- ⚡ **Fast & Asynchronous**: Uses `asyncio` for efficient operation.
+
+---
+
+## 🛠️ Setup
+
+### 1. Clone the Repository
+
 ```bash
-git clone https://github.com/yourusername/MLArchitectBot.git
+git clone https://github.com/Niall1985/MLArchitectBot.git
 cd MLArchitectBot
+```
 
-2. Set up a virtual environment (optional but recommended)
+### 2. Install Dependencies
 
-python -m venv venv
-source venv/bin/activate   # or venv\Scripts\activate on Windows
-
-3. Install dependencies
-
+```bash
 pip install -r requirements.txt
+```
 
-4. Set your environment variables
+> Dependencies:
+> - `discord.py`
+> - `python-dotenv`
 
-Create a .env file and add your Discord bot token and LLaMA model settings:
+### 3. Configure Environment Variables
 
-DISCORD_TOKEN=your_discord_token_here
-LLAMA_MODEL_PATH=path_or_url_to_model
+Create a `.env` file in the project root:
 
-> You can use a hosted LLaMA API or load a quantized version locally with transformers + ctransformers.
+```
+key=YOUR_DISCORD_BOT_TOKEN
+```
 
+### 4. Enable Privileged Intents
 
-
-
----
-
-Running the Bot
-
-python bot.py
-
-You should see a message like:
-
-Bot is online as MLArchitectBot#8465
-
+Go to the [Discord Developer Portal](https://discord.com/developers/applications), select your bot, then go to **Bot > Privileged Gateway Intents**, and enable:
+- `MESSAGE CONTENT INTENT`
 
 ---
 
-Example Usage
+## 📜 Commands
 
-User: Hi there!
+### `!clear [amount]`
 
-Bot: Hello! How can I help you today?
+Deletes the specified number of messages in the current channel. Defaults to `100`.
 
-User: What's the capital of Italy?
-
-Bot: The capital of Italy is Rome.
-
-User: !about
-
-Bot: I am a bot built by MlArchitect125. How can I help you today?
-
-
+> ⚠️ Requires `Manage Messages` permission.
 
 ---
 
-Powered By
+## 📂 File Structure
 
-Discord.py
-
-Meta's LLaMA
-
-Transformers by HuggingFace
-
-
-
----
-
-License
-
-MIT License. Feel free to use, modify, and share!
-
+```
+.
+├── bot.py            
+├── llmbotmodel.py
+├── llm_helper.py     
+├── .env
+├── .gitignore               
+├── LICENSE
+└── README.md           
+```
 
 ---
 
-Contributing
+## 📄 License
 
-Pull requests and suggestions are welcome! For major changes, open an issue first to discuss what you’d like to add.
-
-
----
-
-Future Plans
-
-Fine-tune LLaMA model for Discord-style chat
-
-Add memory & context retention
-
-Support slash commands and message components
-
-Multi-server support with customized personalities
-
-
+This project is licensed under the MIT License.  
+See the [LICENSE](LICENSE) file for details.
 
 ---
 
-Let me know if you'd like to add deployment instructions (e.g., hosting on Replit, Railway, or a VPS), or integrate other features like commands, moderation, or music.
+## 💬 Contact
 
+Made with 💻 by **[Niall1985](https://github.com/Niall1985)**  
+Feel free to fork, star ⭐, or contribute!
+
+---
+
+Let me know if you want the actual `LICENSE` file generated too!
