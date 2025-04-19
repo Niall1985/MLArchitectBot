@@ -7,7 +7,6 @@ MLArchitectBot is a smart AI-powered chatbot built for Discord using the `discor
 ## 🚀 Features
 
 - 🧠 **Conversational AI**: Responds to user messages using `llmbotmodel` which leverages llama.
-- 🧹 **Message Management**: `!clear` command to bulk delete messages in a channel.
 - ⚡ **Fast & Asynchronous**: Uses `asyncio` for efficient operation.
 
 ---
