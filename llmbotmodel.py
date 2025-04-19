@@ -1,4 +1,3 @@
-import langchain
 from langchain_core.prompts import PromptTemplate
 from llm_helper import llm
 
