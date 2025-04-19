@@ -80,7 +80,7 @@ See the [LICENSE](LICENSE) file for details.
 
 ## 💬 Contact
 
-Made with 💻 by **[Niall1985](https://github.com/Niall1985)**  
+Made by **[Niall1985](https://github.com/Niall1985)**  
 Feel free to fork, star ⭐, or contribute!
 
 ---
