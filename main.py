@@ -33,19 +33,23 @@ async def clear(interaction: discord.Interaction, amount: int = 100):
     deleted = await interaction.channel.purge(limit=amount)
     confirm = await interaction.followup.send(f"Cleared {len(deleted)} messages!")
     await asyncio.sleep(2)
-    await confirm.delete()
+    try:
+        await confirm.delete()
+    except discord.NotFound:
+        pass
 
 @bot.event
 async def on_message(message):
     if message.author == bot.user:
         return
-    await bot.process_commands(message)
-    if message.content.startswith('/'):
-        return
-    content = message.content.lower()
-    response = await bot_response(content)
-    await message.channel.send(response)
 
+    await bot.process_commands(message)
+
+    if bot.user in message.mentions:
+        content = message.content.replace(f"<@{bot.user.id}>", "").strip().lower()
+        if content:
+            response = await bot_response(content)
+            await message.channel.send(response)
 app = Flask(__name__)
 
 @app.route('/')
