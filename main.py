@@ -6,6 +6,19 @@ from llmbotmodel import bot_response
 import asyncio
 from flask import Flask
 from threading import Thread
+import threading
+import requests
+import time
+
+def self_ping():
+    while True:
+        try:
+            print("Pinging self to keep alive...")
+            requests.get("https://mlarchitectbot.onrender.com/", timeout=10)
+        except Exception as e:
+            print(f"Self-ping failed: {e}")
+        time.sleep(600) 
+
 
 load_dotenv()
 TOKEN = os.getenv("key")
@@ -66,5 +79,8 @@ def run_flask():
     app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)))
 
 if __name__ == '__main__':
-    Thread(target=run_flask).start()
+    Thread(target=run_flask, daemon=True).start()
+    Thread(target=self_ping, daemon=True).start()
     bot.run(TOKEN)
+
+
